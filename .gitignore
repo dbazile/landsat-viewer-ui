@@ -1,0 +1,11 @@
+# IDE/OS artifacts
+.idea
+
+
+# Development artifacts
+node_modules
+npm-debug.log
+
+
+# Build artifacts
+dist

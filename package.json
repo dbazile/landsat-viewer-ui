@@ -1,0 +1,57 @@
+{
+  "name": "new-webapp",
+  "version": "1.0.0",
+  "description": "Starter project for Webpack SPAs",
+  "repository": "-",
+  "author": "David Bazile",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/classnames": "^2.2.0",
+    "@types/jest": "^20.0.0",
+    "@types/react": "^15.0.29",
+    "@types/react-dom": "^15.5.0",
+    "@types/react-test-renderer": "^15.5.0",
+    "@types/sinon": "^2.3.0",
+    "@types/webpack": "^2.2.15",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.1",
+    "html-webpack-plugin": "^2.28.0",
+    "jest": "^20.0.4",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "react-test-renderer": "^15.6.1",
+    "sinon": "^2.3.2",
+    "style-loader": "^0.18.1",
+    "ts-jest": "^20.0.6",
+    "ts-loader": "^2.1.0",
+    "tslint": "^5.4.2",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.3.4",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "core-js": "^2.4.1",
+    "mobx": "^3.1.15",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/test/.*(\\.test|Test)\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/test/utils/file-mock.ts",
+      "\\.(css|less)$": "<rootDir>/test/utils/style-mock.ts"
+    }
+  }
+}

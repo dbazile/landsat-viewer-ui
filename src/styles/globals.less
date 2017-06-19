@@ -1,0 +1,51 @@
+@import 'constants.less';
+
+:global {
+    * {
+        box-sizing: inherit;
+    }
+
+    html {
+        box-sizing: border-box;
+
+        background-color: @COLOR_BACKGROUND;
+        color: @COLOR_FOREGROUND;
+
+    }
+
+    body {
+        margin: 100px;
+
+        font-family: @FONT_NORMAL;
+        font-weight: 200;
+        font-size: 14px;
+    }
+
+    a {
+        color: @COLOR_LINKS;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: @COLOR_HEADING;
+        font-family: @FONT_HEADING;
+        font-weight: 200;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+    }
+
+    button,
+    input {
+        font-family: @FONT_NORMAL;
+    }
+}
