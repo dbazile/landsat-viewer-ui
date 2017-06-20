@@ -36,7 +36,6 @@
         "eofline": true,
         "indent": [true, "spaces", 4],
         "linebreak-style": [true, "LF"],
-        "max-line-length": [true, 120],
         "prefer-const": true,
         "trailing-comma": [true, {
             "multiline": "always",
@@ -54,7 +53,7 @@
         "one-line": [true, "check-open-brace", "check-whitespace"],
         "prefer-method-signature": true,
         "prefer-template": true,
-        "quotemark": [true, "single", "avoid-escape"],
+        "quotemark": [true, "single", "avoid-escape", "jsx-double"],
         "semicolon": [true, "never"],
         "space-before-function-paren": [true, {
             "anonymous": "always",

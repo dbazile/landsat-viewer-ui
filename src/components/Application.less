@@ -1,14 +1,66 @@
-@import "../styles/constants.less";
+@import '../styles/constants.less';
 
 .root {
-    font-size: 2.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.isRed {
-    background-color: red;
+.map {
+    z-index: 1;
 }
 
-.subtitle {
-    color: @COLOR_SUBHEADING;
-    font: @FONT_HEADING;
+.sceneList {
+    z-index: 2;
+}
+
+@errorBackground: #f24;
+
+.error {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: fade(@errorBackground, 50%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.error__contents {
+    max-width: 600px;
+    text-shadow: 0 0 50px @errorBackground;
+}
+
+.error__heading {
+    font-weight: bold;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.error__message {
+    margin-bottom: 1em;
+}
+
+.error__button {
+    border-radius: 3px;
+    padding: .5em 2em;
+    border: 2px solid white;
+    font-weight: bold;
+    font-size: inherit;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
 }

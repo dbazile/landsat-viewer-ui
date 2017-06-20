@@ -9,7 +9,7 @@ const {execSync} = require('child_process')
 
 const {
     NODE_ENV = 'development',
-    API_PROXY = 'http://localhost:3001',
+    API_PROXY = 'http://localhost:8080',
 } = process.env
 
 
@@ -24,7 +24,7 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader',
+                loader: 'awesome-typescript-loader',
                 options: {
                     logLevel: 'warn',
                     compilerOptions: {
@@ -60,7 +60,10 @@ module.exports = {
 
     devServer: {
         proxy: {
-            '/api': API_PROXY,
+            '/api': {
+                target: API_PROXY,
+                pathRewrite: {'^/api': ''},
+            },
         },
         historyApiFallback: true,
     },

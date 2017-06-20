@@ -1,0 +1,73 @@
+@import "../styles/constants.less";
+
+.root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loadingIndicator {
+    fill: #00b387;
+    fill-opacity: .5;
+    stroke-width: 0;
+    animation: inflate alternate infinite .5s;
+    transform-origin: 50% 50%;
+    pointer-events: none;
+}
+
+@keyframes inflate {
+    from {
+        transform: scale(1.0);
+    }
+    to {
+        transform: scale(3.0);
+    }
+}
+
+.footprint {
+    stroke-width: 0;
+    fill-opacity: 0.5;
+    fill: white;
+}
+
+:global {
+    .leaflet-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+    }
+
+    .leaflet-control-zoom {
+        box-shadow: 5px 5px 5px rgba(0,0,0, .5);
+    }
+
+    .leaflet-control-zoom-in,
+    .leaflet-control-zoom-out {
+        border-radius: 0 !important;
+        font-family: @FONT_NORMAL !important;
+        font-weight: 200 !important;
+        font-size: 16px !important;
+
+        &:hover {
+            background-color: lighten(teal, 60%) !important;
+        }
+    }
+
+    .leaflet-control-attribution {
+        background-color: white !important;
+        color: black !important;
+        padding: 5px 10px !important;
+        font-family: @FONT_HEADING !important;
+        font-size: 12px !important;
+    }
+
+    .leaflet-control-attribution a {
+        color: inherit !important;
+        font-weight: bold !important;
+    }
+}

@@ -1,0 +1,48 @@
+@import '../styles/constants.less';
+
+.root {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.scene {
+    border-radius: 5px;
+    font-size: 1em;
+    background: fade(teal, 85%) linear-gradient(to bottom, fade(white, 10%), transparent 20%, transparent 80%, fade(black, 20%));
+    color: white;
+    margin: 15px;
+    padding: 30px;
+    text-decoration: none;
+    transition: transform .2s ease;
+
+    &:hover {
+        background-color: fade(lighten(teal, +10%), 85%);
+        transform: translateX(-15px);
+    }
+
+    + .scene {
+        margin-top: 0;
+    }
+}
+
+.scene__id {
+    font-family: @FONT_HEADING;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+.scene__timestamp {
+    margin-top: .5em;
+    font-family: @FONT_NORMAL;
+    font-size: 12px;
+    opacity: .5;
+}

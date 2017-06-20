@@ -1,54 +1,39 @@
 import * as React from 'react'
-import * as classnames from 'classnames/bind'
-import axios from 'axios'
+import {observer} from 'mobx-react'
 
 import styles from './Application.less'
 
+import {Map} from './Map'
+import {SceneList} from './SceneList'
+import {Store} from '../store'
 
-const cn = classnames.bind(styles)
 
-interface State {
-    environment?: string
-    revision?: string
-    isRed?: boolean
+interface Props {
+    store: Store
 }
 
-export class Application extends React.Component<any, State> {
-    constructor() {
-        super()
-        this.state = {
-            environment: process.env.NODE_ENV,
-            revision: '',
-            isRed: false,
-        }
-    }
+export const Application = observer(({store}: Props) => (
+    <div className={styles.root}>
+        <Map
+            className={styles.map}
+            scenes={store.scenes}
+            onClick={(x, y) => store.search(x, y)}
+        />
+        <SceneList
+            className={styles.sceneList}
+            scenes={store.scenes}
+        />
 
-    public componentDidMount() {
-        this.fetchRevision()
-    }
-
-    public render() {
-        return (
-            <main className={cn({
-                'root': true,
-                'some-global-thing': true,
-                'isRed': this.state.isRed,
-            })}>
-                <h1>new-webapp</h1>
-                <pre className={styles.subtitle}>{ JSON.stringify(this.state, null, 2) }</pre>
-                <button onClick={() => this.setState((s: State) => s.isRed = !s.isRed)}>Clicky</button>
-            </main>
-        )
-    }
-
-    private fetchRevision() {
-        axios.get('/').then(res =>
-            this.setState(state => {
-                state.revision = new DOMParser()
-                    .parseFromString(res.data, 'text/html')
-                    .documentElement
-                    .getAttribute('data-app-revision')
-            }),
-        )
-    }
-}
+        {store.errors.map((e, i) => <div key={i} className={styles.error}>
+            <div className={styles.error__contents}>
+                <div className={styles.error__heading}>{e.heading}</div>
+                <div className={styles.error__message}>{e.message}</div>
+                <button
+                    className={styles.error__button}
+                    onClick={() => store.dismissError(e)}>
+                    Dismiss
+                </button>
+            </div>
+        </div>)}
+    </div>
+))
