@@ -8,14 +8,19 @@ import 'core-js/es6/string'
 
 
 // Bootstrapping
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { Provider } from 'mobx-react'
 
 import { Store } from './store'
 import { Application } from './components/Application'
 
 
-const store = new Store()
+const store = (window as any).__store__ = new Store()
 
-render(
-    createElement(Application, { store }),
+ReactDOM.render(
+    <Provider store={store}>
+        <Application/>
+    </Provider>,
     document.querySelector('#Application'),
 )

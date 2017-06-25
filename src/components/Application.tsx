@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {observer} from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 
 import { Map } from './Map'
 import { SceneList } from './SceneList'
@@ -7,11 +7,8 @@ import { Store } from '../store'
 
 import styles from './Application.less'
 
-interface Props {
-    store: Store
-}
 
-export const Application = observer(({store}: Props) => (
+export const Application = inject('store')(observer(({ store }: IProps) => (
     <div className={styles.root}>
         <Map
             className={styles.map}
@@ -37,4 +34,13 @@ export const Application = observer(({store}: Props) => (
             </div>
         ))}
     </div>
-))
+)))
+
+
+/*
+ * Types
+ */
+
+interface IProps {
+    store?: Store
+}
