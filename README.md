@@ -1,5 +1,7 @@
 # landsat-viewer-ui
 
+![Screenshot](screenshot.png)
+
 > Simple UI for querying and viewing recent [LANDSAT 8](https://landsat.usgs.gov) scenes.
 
 
