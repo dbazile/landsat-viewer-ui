@@ -2,7 +2,7 @@ import 'leaflet/dist/leaflet.css'
 
 import * as React from 'react'
 import * as L from 'leaflet'
-import * as classnames from 'classnames'
+import * as $ from 'classnames'
 
 import styles from './Map.less'
 
@@ -12,42 +12,30 @@ const DEFAULT_ZOOM = 3
 const KEY_CENTER = 'VIEW_CENTER'
 const KEY_ZOOM = 'VIEW_ZOOM'
 
-
 const BASEMAP = L.tileLayer('https://api.mapbox.com/styles/v1/baziledavid/cj3rjith900032ro4p8fe30pz/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmF6aWxlZGF2aWQiLCJhIjoiY2ozamUxN3NoMDBmdTJ3cXNvMGFvNmZ0ZSJ9.AjW3_wFRo5nt4JBUvM5fzQ', {
     attribution: `&copy; <a href="https://www.mapbox.com/about/maps/" target="_blank" rel="noreferrer">Mapbox</a>
                   &copy; <a href="http://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>`,
 })
 
 
-interface Props {
-    className?: string
-    scenes: landsatviewer.SceneList
-
-    onClick(x: number, y: number)
-}
-
-interface PreviewLayer extends L.TileLayer {
-    sceneId: string
-}
-
-export class Map extends React.Component<Props, {}> {
+export class Map extends React.Component<IProps, {}> {
     private target: HTMLElement
     private map: L.Map
     private vectors: L.FeatureGroup
-    private preview: PreviewLayer
+    private preview: IPreviewLayer
 
-    public render() {
+    render() {
         return (
-            <div className={classnames(styles.root, this.props.className)}>
+            <div className={$(styles.root, this.props.className)}>
                 <div ref={e => this.target = e}/>
             </div>
         )
     }
 
-    public componentDidMount() {
+    componentDidMount() {
         this.vectors = L.featureGroup()
 
-        this.map = L.map(this.target, {
+        this.map = (window as any).__map__ = L.map(this.target, {
             zoom: parseInt(sessionStorage.getItem(KEY_ZOOM), 10) || DEFAULT_ZOOM,
             center: JSON.parse(sessionStorage.getItem(KEY_CENTER)) || DEFAULT_CENTER,
             layers: [
@@ -55,8 +43,6 @@ export class Map extends React.Component<Props, {}> {
                 this.vectors,
             ],
         })
-
-        window['__map__'] = this.map  // tslint:disable-line
 
         this.map
             .on('click', this.onMapClick)
@@ -68,7 +54,7 @@ export class Map extends React.Component<Props, {}> {
         this.redrawFootprints()
     }
 
-    public componentDidUpdate(nextProps: Props) {
+    componentDidUpdate(nextProps: IProps) {
         if (nextProps.scenes !== this.props.scenes) {
             this.redrawFootprints()
         }
@@ -94,7 +80,7 @@ export class Map extends React.Component<Props, {}> {
             bounds: e.target.getBounds(),
             pane: 'overlayPane',
             maxNativeZoom: 13,
-        }) as PreviewLayer
+        }) as IPreviewLayer
 
         preview.sceneId = sceneId
 
@@ -142,9 +128,9 @@ export class Map extends React.Component<Props, {}> {
 }
 
 
-//
-// Helpers
-//
+/*
+ * Helpers
+ */
 
 function animateExit(layer: L.TileLayer) {
     let opacity = 1
@@ -164,4 +150,21 @@ function animateExit(layer: L.TileLayer) {
 function createLoadingIndicator(coordinate: L.LatLng) {
     return L.circleMarker([0, 0], {className: styles.loadingIndicator})
         .setLatLng(coordinate)
+}
+
+
+/*
+ * Types
+ */
+
+
+interface IProps {
+    className?: string
+    scenes: landsatviewer.SceneList
+
+    onClick(x: number, y: number)
+}
+
+interface IPreviewLayer extends L.TileLayer {
+    sceneId: string
 }

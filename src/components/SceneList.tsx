@@ -4,12 +4,7 @@ import * as $ from 'classnames'
 import styles from './SceneList.less'
 
 
-interface Props {
-    className?: string
-    scenes: landsatviewer.SceneList
-}
-
-export const SceneList = ({ className, scenes }: Props) => (
+export const SceneList = ({ className, scenes }: IProps) => (
     <div className={$(styles.root, className)}>
         {scenes && scenes.features.map((scene, i) => (
             <a key={i} href={`/api/scenes/${scene.id}`} target="_blank" title="Get metadata URL" className={styles.scene}>
@@ -19,3 +14,9 @@ export const SceneList = ({ className, scenes }: Props) => (
         ))}
     </div>
 )
+
+
+interface IProps {
+    className?: string
+    scenes: landsatviewer.SceneList
+}

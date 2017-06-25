@@ -5,17 +5,13 @@ import axios from 'axios'
 const SEARCH_PRECISION = 1
 const KEY_SCENES = 'SCENES'
 
-export interface ErrorDetails {
-    heading: string
-    message: string
-}
 
 export class Store {
     @observable.shallow
-    public scenes: landsatviewer.SceneList = JSON.parse(sessionStorage.getItem(KEY_SCENES))
+    scenes: landsatviewer.SceneList = JSON.parse(sessionStorage.getItem(KEY_SCENES))
 
     @observable
-    public errors: IObservableArray<ErrorDetails> = [] as any
+    errors: IObservableArray<ErrorDetails> = [] as any
 
     private cancelSearch: () => void
 
@@ -56,12 +52,18 @@ export class Store {
     }
 
     @action
-    public appendError(err: ErrorDetails) {
+    appendError(err: ErrorDetails) {
         this.errors.push(err)
     }
 
     @action
-    public dismissError(err: ErrorDetails) {
+    dismissError(err: ErrorDetails) {
         this.errors.remove(err)
     }
+}
+
+
+export interface ErrorDetails {
+    heading: string
+    message: string
 }

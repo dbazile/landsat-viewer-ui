@@ -88,7 +88,7 @@ module.exports = {
     devtool: 'cheap-module-source-map',
 
     context: __dirname,
-    entry: './src/main.ts',
+    entry: './src/main.tsx',
     output: {
         filename: 'build.js',
         path: path.join(__dirname, 'dist/www'),
