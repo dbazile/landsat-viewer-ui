@@ -88,7 +88,7 @@ export class Map extends React.Component<IProps, {}> {
             .addTo(this.map)
 
         preview
-            .once('load tilerror', () => loadingIndicator.remove())
+            .once('load tileerror tileunload', () => loadingIndicator.remove())
             .setZIndex(999)
             .addTo(this.map)
 
