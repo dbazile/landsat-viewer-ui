@@ -2,8 +2,6 @@
 
 > Simple UI for querying and viewing recent [LANDSAT 8](https://landsat.usgs.gov) scenes.
 
-[![Build Status](https://travis-ci.org/dbazile/landsat-viewer-ui.svg?branch=master)](https://travis-ci.org/dbazile/landsat-viewer-ui)
-
 
 ## Running locally for development
 
@@ -34,14 +32,4 @@
 
 # Automatically fix certain linter errors
 ./scripts/lint.sh --fix
-```
-
-
-## Running unit tests
-
-```bash
-./scripts/test.sh
-
-# Run in watch mode
-./scripts/test.sh --watchAll
 ```
