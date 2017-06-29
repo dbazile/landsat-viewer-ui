@@ -3,8 +3,7 @@ import './styles/globals.less'
 
 
 // Polyfills
-import 'core-js/es6/object'
-import 'core-js/es6/string'
+import 'core-js/es6'
 
 
 // Bootstrapping
