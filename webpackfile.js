@@ -91,7 +91,7 @@ module.exports = {
     entry: './src/main.tsx',
     output: {
         filename: 'build.js',
-        path: path.join(__dirname, 'dist/www'),
+        path: path.join(__dirname, 'dist/public'),
     },
 
     resolve: {
