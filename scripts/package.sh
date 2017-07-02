@@ -16,7 +16,6 @@ export NODE_ENV
 
 echo -e "\nBuilding archive at '$ARCHIVE_FILENAME'...\n"
 
-cd dist
-cp ../nginx.conf .
+cd dist/public
 
-zip -r $ARCHIVE_FILENAME . -x "$PROJECT_NAME-*.zip"
+zip -r ../$ARCHIVE_FILENAME . -x "$PROJECT_NAME-*.zip"
