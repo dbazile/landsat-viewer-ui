@@ -5,6 +5,9 @@
   "repository": "https://github.com/dbazile/landsat-viewer-ui",
   "author": "David Bazile",
   "license": "ISC",
+  "scripts": {
+    "heroku-postbuild": "npm install --only=dev && webpack --color"
+  },
   "devDependencies": {
     "@types/classnames": "^2.2.0",
     "@types/leaflet": "^1.0.63",

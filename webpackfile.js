@@ -10,6 +10,7 @@ const {execSync} = require('child_process')
 const {
     NODE_ENV = 'development',
     API_PROXY = 'http://localhost:8080',
+    GIT_REV = execSync('git rev-parse HEAD 2>/dev/null').toString(),
 } = process.env
 
 
@@ -80,7 +81,7 @@ module.exports = {
             app: {
                 name: pkg.name,
                 version: pkg.version,
-                revision: execSync('git rev-parse HEAD').toString().substr(0, 10),
+                revision: GIT_REV,
             },
         }),
     ],

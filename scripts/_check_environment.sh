@@ -25,7 +25,7 @@ if [ ! -d node_modules ]; then
     echo -e "\nInstalling Node dependencies\n"
 
     if ! node -e "assert(process.version.slice(1).split('.')[0] >= $MINIMUM_NODE_VERSION)" 2>/dev/null; then
-        echo -e "\nNode 7.0.0 or higher must be installed first"
+        echo -e "\nNode $MINIMUM_NODE_VERSION.0.0 or higher must be installed first"
         exit 1
     fi
 
