@@ -148,7 +148,7 @@ function animateExit(layer: L.TileLayer) {
 }
 
 function createLoadingIndicator(coordinate: L.LatLng) {
-    return L.circleMarker([0, 0], {className: styles.loadingIndicator, radius: 1, interactive: false})
+    return L.circleMarker([0, 0], {className: styles.loadingIndicator, radius: 0, interactive: false})
         .setLatLng(coordinate)
 }
 
