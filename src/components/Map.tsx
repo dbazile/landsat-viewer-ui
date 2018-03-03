@@ -54,8 +54,8 @@ export class Map extends React.Component<IProps, {}> {
         this.redrawFootprints()
     }
 
-    componentDidUpdate(nextProps: IProps) {
-        if (nextProps.scenes !== this.props.scenes) {
+    componentDidUpdate(prevProps: IProps) {
+        if (prevProps.scenes !== this.props.scenes) {
             this.redrawFootprints()
         }
     }
@@ -77,7 +77,7 @@ export class Map extends React.Component<IProps, {}> {
         const preview = L.tileLayer(`/api/tiles/${sceneId}/{z}/{x}/{y}.png`, {
             attribution: `&copy;<a href="https://landsat.usgs.gov/about-landsat" target="_blank" rel="noreferrer">Landsat8</a>,
                           &copy;<a href="https://www.planet.com" target="_blank" rel="noreferrer">Planet</a>`,
-            bounds: e.target.getBounds(),
+            bounds: e.layer.getBounds(),
             pane: 'overlayPane',
             maxNativeZoom: 13,
         }) as IPreviewLayer
@@ -148,7 +148,7 @@ function animateExit(layer: L.TileLayer) {
 }
 
 function createLoadingIndicator(coordinate: L.LatLng) {
-    return L.circleMarker([0, 0], {className: styles.loadingIndicator})
+    return L.circleMarker([0, 0], {className: styles.loadingIndicator, radius: 1, interactive: false})
         .setLatLng(coordinate)
 }
 

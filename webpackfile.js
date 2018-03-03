@@ -64,6 +64,7 @@ module.exports = {
             '/api': {
                 target: API_PROXY,
                 pathRewrite: {'^/api': ''},
+                changeOrigin: true,
             },
         },
         historyApiFallback: true,
