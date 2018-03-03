@@ -10,19 +10,16 @@
 
 .loadingIndicator {
     fill: #00b387;
+    stroke: #00b387;
     fill-opacity: .5;
-    stroke-width: 0;
+    stroke-width: 10px;
     animation: inflate alternate infinite .5s;
     transform-origin: 50% 50%;
-    pointer-events: none;
 }
 
 @keyframes inflate {
-    from {
-        transform: scale(1.0);
-    }
     to {
-        transform: scale(3.0);
+        stroke-width: 30px;
     }
 }
 
