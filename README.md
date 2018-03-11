@@ -1,8 +1,10 @@
 # landsat-viewer-ui
 
-![Screenshot](screenshot.png)
+![Build Status](https://dev.bazile.org/ci/status/landsat-viewer-ui.svg)
 
 > Simple UI for querying and viewing recent [LANDSAT 8](https://landsat.usgs.gov) scenes.
+
+![Screenshot](screenshot.png)
 
 
 ## Running locally for development

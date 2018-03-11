@@ -1,19 +1,14 @@
 library 'deployment'
 
 pipeline {
-    agent any
-
-    tools {
-        nodejs 'nodejs'
+    agent {
+        docker {
+            image 'node:9.2'
+            args '-e HOME=$HOME -v $HOME:$HOME -v /etc/passwd:/etc/passwd:ro'
+        }
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'git://github.com/dbazile/landsat-viewer-ui'
-            }
-        }
-
         stage('Install dependencies') {
             steps {
                 sh 'npm install'
