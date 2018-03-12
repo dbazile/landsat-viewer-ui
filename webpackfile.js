@@ -10,7 +10,7 @@ const {execSync} = require('child_process')
 const {
     NODE_ENV = 'development',
     API_PROXY = 'http://localhost:8080',
-    GIT_REV = execSync('git rev-parse HEAD 2>/dev/null').toString(),
+    GIT_REV = execSync('git rev-parse HEAD 2>/dev/null || echo -').toString().trim(),
 } = process.env
 
 
