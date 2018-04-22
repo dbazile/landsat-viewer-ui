@@ -95,7 +95,7 @@ export class Map extends React.Component<IProps, {}> {
         this.preview = preview
     }
 
-    private onMapClick = (e: L.MouseEvent) => {
+    private onMapClick = (e: L.LeafletMouseEvent) => {
         if (this.preview) {
             animateExit(this.preview)
         }

@@ -16,10 +16,6 @@
   dependencies:
     "@types/geojson" "*"
 
-"@types/node@*":
-  version "9.6.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.6.tgz#439b91f9caf3983cad2eef1e11f6bedcbf9431d2"
-
 "@types/react-dom@^15.5.0":
   version "15.5.7"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-15.5.7.tgz#a5c1c8b315e925d84d59db5ee88ca7e31c5030f9"
@@ -35,24 +31,6 @@
 "@types/react@^15", "@types/react@^15.0.29":
   version "15.6.15"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.6.15.tgz#1856f932120311aa566f91e6d0c6e613d6448236"
-
-"@types/tapable@*":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
-
-"@types/uglify-js@*":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.0.2.tgz#f30c75458d18e8ee885c792c04adcb78a13bc286"
-  dependencies:
-    source-map "^0.6.1"
-
-"@types/webpack@^2.2.15":
-  version "2.2.16"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-2.2.16.tgz#9ca93f468ab3a8eb4b6f45f589acf58c8133aa9b"
-  dependencies:
-    "@types/node" "*"
-    "@types/tapable" "*"
-    "@types/uglify-js" "*"
 
 abbrev@1:
   version "1.1.1"
