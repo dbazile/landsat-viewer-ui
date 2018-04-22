@@ -29,7 +29,7 @@ if [ ! -d node_modules ]; then
         exit 1
     fi
 
-    npm install
+    yarn install
 
     ############################################################################
 

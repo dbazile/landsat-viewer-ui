@@ -6,7 +6,7 @@
   "author": "David Bazile",
   "license": "ISC",
   "scripts": {
-    "heroku-postbuild": "npm install --only=dev && webpack --color"
+    "heroku-postbuild": "yarn install --prod=false && webpack --color"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.0",
