@@ -6,7 +6,7 @@ declare namespace landsatviewer {
     }
 
     interface SceneProperties {
-        acquiredOn: string
+        acquired: string
         resolution: number
         cloudCover: number
         wrsPath: string
