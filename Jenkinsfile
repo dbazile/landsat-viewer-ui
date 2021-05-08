@@ -1,4 +1,4 @@
-library 'deployment'
+library 'libcommon'
 
 node {
     checkout scm
@@ -14,6 +14,6 @@ node {
     }
 
     stage('Deploy') {
-        deployApplication('landsat-viewer')
+        libcommon.deploy('landsat-viewer')
     }
 }
